@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python code by dead-coder</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/prism.css">
+    <link rel="stylesheet" media="screen and (max-width:1412px)" href="css/tab.css">
+    <link rel="stylesheet" media="screen and (max-width:757px)" href="css/phone.css">
+    <link rel="shortcut icon" href="img/favicon.svg" type="image/x-icon">
+</head>
+
+<body>
+    <nav>
+        <span class="logo">
+            <img src="img/logo.svg" alt="logo">
+            <div class="content centre">Python cheet Sheet is For You!</div>
+        </span>
+    </nav>
+    <div class="container">
+        <p id="lable">Python Pratices problems</p>
+        <img src="img/python.png" alt="python">
+        <ol>
+            <li>black Jack 1 <br>
+                <strong class="color">
+                    In genreal given two numbers , a and b return thier sum However if the sum is greater than 21 then return 0 instead (since the player has "gon bust")</strong>
+                <pre class="language-python"><code>
+# sloution:-
+a  = int(input("Enter a number:\n"))
+b  = int(input("Enter a another number:\n"))
+
+def BlackJack(a,b):
+    add = a+b
+
+    if add == 21:
+        return 0
+    else:
+        return add
+
+if __name__ == '__main__':
+    run = BlackJack(a,b)
+    print(run)
+                </code></pre>
+            </li>
+            <li>BlackJack 2 <br>
+                <strong class="color">
+                    Question:-
+If the number is greater than 21 return 0 unless one of the numbers is 11. in such case the 11 should be converted to a 1 to prevent the sum from being exceeded.
+
+For example given a 11 and 13 as input, the 11 should be converted into a 1 so the total sum will be 14.
+                </strong>
+                <pre class="language-python"><code>
+# solution:-
+# Taking two input a ,b form the user 
+a = int(input("Enter a number:\n"))
+b = int(input("Enter a another number:\n"))
+
+def blackjack(a,b):
+    """
+    this function will take int a and b 
+    if a or b is 11 than it will be conveted into 1 and then the number will be added
+    """
+    if a == 11:
+        a = 1
+        return a+b
+    elif b == 11:
+        b = 1
+        return a+b
+    else:
+        return a+b
+
+if __name__ == '__main__':
+    run = blackjack(a,b)
+    print(run)
+                </code></pre>
+            </li>
+            <li>BlackJack Hand <br>
+                <strong class="color">
+This is problem is scored like black-jack 2 ,but you need to deal with an array of numbers instead of one number:
+
+In general , return the sum of a given list of number if the sum is greter than 21, return 0 unless one or more of the numbers is 11 in such case as many 11's as necessary should be converted to 1's to prevent the sum from being exceeded
+                </strong>
+                <pre class="language-python"><code>
+# solution
+BJ = [11,11,9,4,6]
+
+def blackJackHand(numlist):
+    SUM = 0
+    for i in numlist:
+        if i == 11:
+            i = 1
+            SUM = SUM+i
+        else:
+            SUM = SUM+i
+    
+    if SUM == 21:
+        return 0
+    else:
+        return SUM
+
+if __name__ == '__main__':
+    run = blackJackHand(BJ)
+    print(run)
+                </code></pre>
+            </li>
+            <li>
+                Coreect-change 1 <br>
+                <strong class="color">
+You are given a certain number of nickels and pennies and a desired sum of cents is it possible to select the exact change to reach the sum?
+You will be given three numbers as input- ninkels , pennies and sum .Return True if you can select coins to reach sum exactly , and false otherwise
+In this challenge , you can be given any number of nickles but only 0 to 4 pennies.
+
+Note :- A nikle is worth 5 cents . A penny is worth 1 cent.
+                </strong>
+                <pre class="language-python"><code>
+# solution
+nickels = int(input("Enter nikles:\n"))
+pennies = int(input("Enter pennies:\n"))
+cent = int(input("Enter the sum:\n"))
+
+def correctChange(nickels,pennies,cent):
+    n = 5
+    p = 1
+    
+    if n*nickels + p*pennies == cent:
+        return True
+    else:
+        return False
+
+if __name__ == '__main__':
+    run = correctChange(nickels,pennies,cent)
+    print(run)
+                </code></pre>
+            </li>
+            <li>Coreect-change Advance <br>
+                <strong class="color">
+                    You are (again) given three numbers as input nickles , pennies , sum . Can you select the exact change from your coins to reach a sum of cents? Retutn True if you can and Flase otherwise
+                </strong>
+                <pre class="language-python"><code>
+# solution
+nickels = int(input("Enter nikles:\n"))
+pennies = int(input("Enter pennies:\n"))
+cent = int(input("Enter the sum:\n"))
+
+def change(nickels,pennies,cent):
+    cent_ = nickels*5 + 1*pennies
+    if cent_ == cent:
+        return False
+    elif cent_ < cent:
+        return True
+
+if __name__ == '__main__':
+    run = change(nickels,pennies,cent)
+    print(run)
+                </code></pre>
+            </li>
+        </ol>
+    </div>
+</body>
+<script src="js/prism.js"></script>
+
+</html>
